@@ -1,5 +1,5 @@
 import React from "react";
-import aboutImg from "url:../images/tpsiteOfficeStock1.jpg";
+import aboutImg from "url:../images/tpsiteSkylineStock3.jpg";
 
 const About = () => {
   return (
@@ -7,7 +7,7 @@ const About = () => {
       <div className="container">
         <div className="row">
           <div className="col about-center order-first" data-aos="zoom-in" data-aos-delay="150">
-            <img src={aboutImg} className="img-fluid" alt="Techport13 team collaboration" />
+            <img src={aboutImg} className="img-fluid" alt="Techport13" />
           </div>
           <div className="col content" data-aos="fade-right">
             <h3>Welcome to Techport13!</h3>
@@ -28,10 +28,6 @@ const About = () => {
               <li>
                 <i className="bi bi-check-circle"></i>
                 We offer a supportive and collaborative culture that encourages your ideas and innovations to shine.
-              </li>
-              <li>
-                <i className="bi bi-check-circle"></i>
-                We prioritize work-life balance and offer competitive benefits packages to ensure the well-being of our employees.
               </li>
             </ul>
           </div>

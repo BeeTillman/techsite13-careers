@@ -25,7 +25,7 @@ const Footer = () => {
             </div>
 
             <div className="col-lg-3 col-md-6">
-              <strong>Main Site:</strong>{" "}
+              <strong>Main Page:</strong>{" "}
               <a href="https://techport13.com" target="_blank" rel="noopener noreferrer">
                 techport13.com
               </a>

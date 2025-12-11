@@ -46,11 +46,6 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a className="nav-link scrollto" href="#interviewing" onClick={(e) => handleNavClick(e, "interviewing")}>
-                Interviewing
-              </a>
-            </li>
-            <li>
               <a className="nav-link scrollto" href="#benefits" onClick={(e) => handleNavClick(e, "benefits")}>
                 Benefits
               </a>
@@ -67,7 +62,7 @@ const Header = () => {
             </li>
             <li>
               <a className="nav-link" href="https://techport13.com" target="_blank" rel="noopener noreferrer">
-                Main Site
+                Main Page
               </a>
             </li>
           </ul>

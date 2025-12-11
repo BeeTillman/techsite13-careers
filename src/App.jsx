@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import About from "./Components/About";
-import Interviewing from "./Components/Interviewing";
+// import Interviewing from "./Components/Interviewing";
 import Benefits from "./Components/Benefits";
 import Team from "./Components/Team";
 import Contact from "./Components/Contact";
@@ -45,7 +45,7 @@ function App() {
       <Hero />
       <main id="main">
         <About />
-        <Interviewing />
+        {/* <Interviewing /> */}
         <Benefits />
         <Team />
         <Contact />

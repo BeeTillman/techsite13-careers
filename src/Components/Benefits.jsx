@@ -1,16 +1,11 @@
 import React from "react";
-import benefitsImg from "url:../images/benefits1.png";
+import benefitsImg from "url:../images/tpsiteSpaceStock2.jpg";
 
 const benefits = [
   {
-    icon: "bi-calendar-week",
-    title: "Unlimited Paid Time Off",
-    description: "We believe our employees work better when they have autonomy over their own schedule. Unlimited PTO allows each member of the Techport13 family to visit loved ones, take a vacation, or simply a day to decompress."
-  },
-  {
     icon: "bi-cash-stack",
     title: "Generous 401k Matching",
-    description: "We match 50% of all pre-tax 401(k) contributions you make, up to the government maximum per year."
+    description: "We offer a competitive 401(k) matching program to help you build a secure financial future and maximize your retirement savings."
   },
   {
     icon: "bi-heart-pulse",
