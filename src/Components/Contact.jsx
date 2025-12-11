@@ -45,7 +45,7 @@ const Contact = () => {
             <div className="info-box mb-4">
               <i className="bx bx-envelope"></i>
               <h3>Email Us</h3>
-              <p>info@techport13.com</p>
+              <p>careers@techport13.com</p>
             </div>
           </div>
 

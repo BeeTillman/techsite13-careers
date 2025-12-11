@@ -4,7 +4,7 @@ import Hero from "./Components/Hero";
 import About from "./Components/About";
 // import Interviewing from "./Components/Interviewing";
 import Benefits from "./Components/Benefits";
-import Team from "./Components/Team";
+// import Team from "./Components/Team";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import "./styles/main.css";
@@ -47,7 +47,7 @@ function App() {
         <About />
         {/* <Interviewing /> */}
         <Benefits />
-        <Team />
+        {/* <Team /> */}
         <Contact />
       </main>
       <Footer />

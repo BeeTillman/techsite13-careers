@@ -51,17 +51,12 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a className="nav-link scrollto" href="#our-team" onClick={(e) => handleNavClick(e, "our-team")}>
-                Our Team
-              </a>
-            </li>
-            <li>
               <a className="nav-link scrollto" href="#contact" onClick={(e) => handleNavClick(e, "contact")}>
                 Contact
               </a>
             </li>
             <li>
-              <a className="nav-link" href="https://techport13.com" target="_blank" rel="noopener noreferrer">
+              <a className="nav-link" href="https://techport13.com">
                 Main Page
               </a>
             </li>
