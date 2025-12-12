@@ -20,7 +20,7 @@ const Footer = () => {
 
             <div className="col-lg-3 col-md-6">
               <strong>Phone:</strong> +1 (404) 919-2660<br />
-              <strong>Email:</strong> info@techport13.com<br />
+              <strong>Email:</strong> careers@techport13.com<br />
               <strong>Homepage:</strong> https://techport13.com/
             </div>
 

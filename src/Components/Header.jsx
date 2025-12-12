@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <header id="header" className={`fixed-top ${isScrolled ? "header-scrolled" : ""}`}>
       <div className="container d-flex align-items-center justify-content-between">
-        <a href="#hero" className="logo" onClick={(e) => handleNavClick(e, "hero")}>
+        <a href="https://techport13.com" className="logo">
           <img src={logo} alt="Techport13 Logo" className="img-fluid" />
         </a>
 
