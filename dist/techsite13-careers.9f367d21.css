@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #191065;
+  color: #24356f;
   text-decoration: none;
 }
 
@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .back-to-top:hover {
   color: #fff;
-  background: #2c4964;
+  background: #24356f;
 }
 
 .back-to-top.active {
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header.header-scrolled {
-  background: #0e3f58;
+  background: #24356ff2;
   padding: 12px 0;
 }
 
@@ -142,56 +142,44 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (width <= 991px) {
   .mobile-nav-toggle {
+    z-index: 1001;
     display: block;
+    position: relative;
   }
 
   .navbar ul {
     display: none;
   }
-}
 
-.navbar-mobile {
-  z-index: 999;
-  background: #1c2f41e6;
-  transition: all .3s;
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-}
+  .navbar ul.navbar-mobile {
+    z-index: 1000;
+    background: #24356ff2;
+    padding: 80px 20px 20px;
+    display: block;
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+  }
 
-.navbar-mobile .mobile-nav-toggle {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
+  .navbar ul.navbar-mobile li {
+    border-bottom: 1px solid #ffffff1a;
+    padding: 12px 0;
+  }
 
-.navbar-mobile ul {
-  background-color: #fff;
-  padding: 10px 0;
-  transition: all .3s;
-  display: block;
-  position: absolute;
-  inset: 55px 15px 15px;
-  overflow-y: auto;
-}
+  .navbar ul.navbar-mobile a {
+    color: #fff;
+    font-size: 18px;
+    display: block;
+  }
 
-.navbar-mobile > ul > li {
-  padding: 0;
-}
-
-.navbar-mobile a, .navbar-mobile a:focus {
-  color: #2c4964;
-  padding: 10px 20px;
-  font-size: 15px;
-}
-
-.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #191065;
+  .navbar ul.navbar-mobile a:hover, .navbar ul.navbar-mobile .active {
+    color: #2f9c95;
+  }
 }
 
 #hero {
   background-color: #0000;
-  background-image: linear-gradient(45deg, #111b39cc 100%, #cfcaebb3 0%), url("hero-bg.e04e4337.jpg");
+  background-image: linear-gradient(45deg, #24356fd9 100%, #cfcaebb3 0%), url("hero-bg.e04e4337.jpg");
   background-position: 0 0, center;
   background-repeat: repeat, no-repeat;
   background-size: cover;
@@ -356,7 +344,7 @@ section {
 }
 
 .about .content h3 {
-  color: #2c4964;
+  color: #24356f;
   font-size: 32px;
   font-weight: 600;
 }
@@ -434,7 +422,7 @@ section {
 
 .testimonials .testimonial-item h3 {
   text-align: center;
-  color: #2c4964;
+  color: #24356f;
   margin-top: 15px;
   font-size: 18px;
   font-weight: bold;
@@ -485,7 +473,7 @@ section {
 }
 
 .contact .info-box h3 {
-  color: #2c4964;
+  color: #24356f;
   margin: 10px 0;
   font-size: 20px;
   font-weight: 700;
@@ -560,7 +548,7 @@ section {
 }
 
 .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
-  border-color: #191065;
+  border-color: #24356f;
 }
 
 .contact .php-email-form input {
@@ -581,7 +569,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-  background: #7b27d8;
+  background: #24356f;
 }
 
 @keyframes animate-loading {
@@ -597,7 +585,7 @@ section {
 #footer {
   color: #fff;
   background-color: #0000;
-  background-image: linear-gradient(45deg, #111b39e6 100%, #cfcaebb3 0%), url("hero-bg.e04e4337.jpg");
+  background-image: linear-gradient(45deg, #24356fe6 100%, #cfcaebb3 0%), url("hero-bg.e04e4337.jpg");
   background-position: 0 0, center;
   background-repeat: repeat, no-repeat;
   background-size: cover;
@@ -723,7 +711,7 @@ section {
 }
 
 .interviewing .icon-box h4 {
-  color: #2c4964;
+  color: #24356f;
   margin: 10px 0 15px;
   font-size: 22px;
   font-weight: 600;
@@ -769,7 +757,7 @@ section {
 }
 
 .benefits .icon-box h4 {
-  color: #2c4964;
+  color: #24356f;
   margin: 5px 0 10px 60px;
   font-size: 20px;
   font-weight: 700;

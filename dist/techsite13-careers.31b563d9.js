@@ -25006,8 +25006,7 @@ var _aboutDefault = parcelHelpers.interopDefault(_about);
 // import Interviewing from "./Components/Interviewing";
 var _benefits = require("./Components/Benefits");
 var _benefitsDefault = parcelHelpers.interopDefault(_benefits);
-var _team = require("./Components/Team");
-var _teamDefault = parcelHelpers.interopDefault(_team);
+// import Team from "./Components/Team";
 var _contact = require("./Components/Contact");
 var _contactDefault = parcelHelpers.interopDefault(_contact);
 var _footer = require("./Components/Footer");
@@ -25065,11 +25064,6 @@ function App() {
                         lineNumber: 49,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _teamDefault.default), {}, void 0, false, {
-                        fileName: "src/App.jsx",
-                        lineNumber: 50,
-                        columnNumber: 9
-                    }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
                         fileName: "src/App.jsx",
                         lineNumber: 51,
@@ -25116,7 +25110,7 @@ $RefreshReg$(_c, "App");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./Components/Header":"dmKJv","./Components/Hero":"5I7y5","./Components/About":"Cjjls","./Components/Benefits":"g5H5P","./Components/Team":"3oMUB","./Components/Contact":"3Ak1h","./Components/Footer":"6CuBd","./styles/main.css":"clPKd","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"dmKJv":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./Components/Header":"dmKJv","./Components/Hero":"5I7y5","./Components/About":"Cjjls","./Components/Benefits":"g5H5P","./Components/Contact":"3Ak1h","./Components/Footer":"6CuBd","./styles/main.css":"clPKd","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"dmKJv":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$beb5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$beb5.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -25136,9 +25130,23 @@ const Header = ()=>{
     _s();
     const [isScrolled, setIsScrolled] = (0, _react.useState)(false);
     const [isMobileNavOpen, setIsMobileNavOpen] = (0, _react.useState)(false);
+    const [activeSection, setActiveSection] = (0, _react.useState)("hero");
     (0, _react.useEffect)(()=>{
         const handleScroll = ()=>{
             setIsScrolled(window.scrollY > 50);
+            const sections = [
+                "hero",
+                "about",
+                "benefits",
+                "contact"
+            ];
+            for(let i = sections.length - 1; i >= 0; i--){
+                const section = document.getElementById(sections[i]);
+                if (section && window.scrollY >= section.offsetTop - 100) {
+                    setActiveSection(sections[i]);
+                    break;
+                }
+            }
         };
         window.addEventListener("scroll", handleScroll);
         return ()=>window.removeEventListener("scroll", handleScroll);
@@ -25151,10 +25159,8 @@ const Header = ()=>{
                 behavior: "smooth"
             });
             setIsMobileNavOpen(false);
+            setActiveSection(sectionId);
         }
-    };
-    const toggleMobileNav = ()=>{
-        setIsMobileNavOpen(!isMobileNavOpen);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
         id: "header",
@@ -25163,159 +25169,126 @@ const Header = ()=>{
             className: "container d-flex align-items-center justify-content-between",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                    href: "#hero",
+                    href: "https://techport13.com",
                     className: "logo",
-                    onClick: (e)=>handleNavClick(e, "hero"),
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                         src: (0, _tpsiteTpLogoPngDefault.default),
                         alt: "Techport13 Logo",
                         className: "img-fluid"
                     }, void 0, false, {
                         fileName: "src/Components/Header.jsx",
-                        lineNumber: 33,
+                        lineNumber: 40,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/Components/Header.jsx",
-                    lineNumber: 32,
+                    lineNumber: 39,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
                     id: "navbar",
-                    className: `navbar ${isMobileNavOpen ? "navbar-mobile" : ""}`,
+                    className: "navbar",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                            className: isMobileNavOpen ? "navbar-mobile" : "",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        className: "nav-link scrollto active",
+                                        className: `nav-link scrollto ${activeSection === "hero" ? "active" : ""}`,
                                         href: "#hero",
                                         onClick: (e)=>handleNavClick(e, "hero"),
                                         children: "Home"
                                     }, void 0, false, {
                                         fileName: "src/Components/Header.jsx",
-                                        lineNumber: 39,
+                                        lineNumber: 46,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/Components/Header.jsx",
-                                    lineNumber: 38,
+                                    lineNumber: 45,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        className: "nav-link scrollto",
+                                        className: `nav-link scrollto ${activeSection === "about" ? "active" : ""}`,
                                         href: "#about",
                                         onClick: (e)=>handleNavClick(e, "about"),
                                         children: "About"
                                     }, void 0, false, {
                                         fileName: "src/Components/Header.jsx",
-                                        lineNumber: 44,
+                                        lineNumber: 51,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/Components/Header.jsx",
-                                    lineNumber: 43,
+                                    lineNumber: 50,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        className: "nav-link scrollto",
+                                        className: `nav-link scrollto ${activeSection === "benefits" ? "active" : ""}`,
                                         href: "#benefits",
                                         onClick: (e)=>handleNavClick(e, "benefits"),
                                         children: "Benefits"
                                     }, void 0, false, {
                                         fileName: "src/Components/Header.jsx",
-                                        lineNumber: 49,
+                                        lineNumber: 56,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/Components/Header.jsx",
-                                    lineNumber: 48,
+                                    lineNumber: 55,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        className: "nav-link scrollto",
-                                        href: "#our-team",
-                                        onClick: (e)=>handleNavClick(e, "our-team"),
-                                        children: "Our Team"
-                                    }, void 0, false, {
-                                        fileName: "src/Components/Header.jsx",
-                                        lineNumber: 54,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/Components/Header.jsx",
-                                    lineNumber: 53,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        className: "nav-link scrollto",
+                                        className: `nav-link scrollto ${activeSection === "contact" ? "active" : ""}`,
                                         href: "#contact",
                                         onClick: (e)=>handleNavClick(e, "contact"),
                                         children: "Contact"
                                     }, void 0, false, {
                                         fileName: "src/Components/Header.jsx",
-                                        lineNumber: 59,
+                                        lineNumber: 61,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/Components/Header.jsx",
-                                    lineNumber: 58,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        className: "nav-link",
-                                        href: "https://techport13.com",
-                                        target: "_blank",
-                                        rel: "noopener noreferrer",
-                                        children: "Main Page"
-                                    }, void 0, false, {
-                                        fileName: "src/Components/Header.jsx",
-                                        lineNumber: 64,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/Components/Header.jsx",
-                                    lineNumber: 63,
+                                    lineNumber: 60,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/Components/Header.jsx",
-                            lineNumber: 37,
+                            lineNumber: 44,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                             className: `bi ${isMobileNavOpen ? "bi-x" : "bi-list"} mobile-nav-toggle`,
-                            onClick: toggleMobileNav
+                            onClick: ()=>setIsMobileNavOpen(!isMobileNavOpen)
                         }, void 0, false, {
                             fileName: "src/Components/Header.jsx",
-                            lineNumber: 69,
+                            lineNumber: 66,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/Header.jsx",
-                    lineNumber: 36,
+                    lineNumber: 43,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/Components/Header.jsx",
-            lineNumber: 31,
+            lineNumber: 38,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/Components/Header.jsx",
-        lineNumber: 30,
+        lineNumber: 37,
         columnNumber: 5
     }, undefined);
 };
-_s(Header, "qGAj3+LEHKPkuVloDKM0rzZ3yLI=");
+_s(Header, "53w9igexuy0VivTOvwArSw6kqAw=");
 _c = Header;
 exports.default = Header;
 var _c;
@@ -27855,7 +27828,7 @@ $RefreshReg$(_c, "About");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","url:../images/tpsiteSkylineStock3.jpg":"9k3Au"}],"9k3Au":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","url:../images/tpsiteSkylineStock3.jpg":"9k3Au","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"9k3Au":[function(require,module,exports,__globalThis) {
 module.exports = module.bundle.resolve("tpsiteSkylineStock3.23b286a1.jpg") + "?" + Date.now();
 
 },{}],"g5H5P":[function(require,module,exports,__globalThis) {
@@ -28009,449 +27982,8 @@ $RefreshReg$(_c, "Benefits");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","url:../images/tpsiteSpaceStock2.jpg":"f0EGr"}],"f0EGr":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","url:../images/tpsiteSpaceStock2.jpg":"f0EGr","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"f0EGr":[function(require,module,exports,__globalThis) {
 module.exports = module.bundle.resolve("tpsiteSpaceStock2.3597b1e0.jpg") + "?" + Date.now();
-
-},{}],"3oMUB":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$5241 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$5241.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$5241.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _tpsitePfpMPatelPng = require("url:../images/tpsitePfpMPatel.png");
-var _tpsitePfpMPatelPngDefault = parcelHelpers.interopDefault(_tpsitePfpMPatelPng);
-var _tpsitePfpMThrasherPng = require("url:../images/tpsitePfpMThrasher.png");
-var _tpsitePfpMThrasherPngDefault = parcelHelpers.interopDefault(_tpsitePfpMThrasherPng);
-var _tpsitePfpJClementsPng = require("url:../images/tpsitePfpJClements.png");
-var _tpsitePfpJClementsPngDefault = parcelHelpers.interopDefault(_tpsitePfpJClementsPng);
-var _tpsitePfpSChaneyPng = require("url:../images/tpsitePfpSChaney.png");
-var _tpsitePfpSChaneyPngDefault = parcelHelpers.interopDefault(_tpsitePfpSChaneyPng);
-var _tpsitePfpJShirlingPng = require("url:../images/tpsitePfpJShirling.png");
-var _tpsitePfpJShirlingPngDefault = parcelHelpers.interopDefault(_tpsitePfpJShirlingPng);
-var _tpsitePfpKLindsayPng = require("url:../images/tpsitePfpKLindsay.png");
-var _tpsitePfpKLindsayPngDefault = parcelHelpers.interopDefault(_tpsitePfpKLindsayPng);
-var _tpsitePfpMDebsPng = require("url:../images/tpsitePfpMDebs.png");
-var _tpsitePfpMDebsPngDefault = parcelHelpers.interopDefault(_tpsitePfpMDebsPng);
-var _tpsitePfpSSteenPng = require("url:../images/tpsitePfpSSteen.png");
-var _tpsitePfpSSteenPngDefault = parcelHelpers.interopDefault(_tpsitePfpSSteenPng);
-var _tpsitePfpARobbenPng = require("url:../images/tpsitePfpARobben.png");
-var _tpsitePfpARobbenPngDefault = parcelHelpers.interopDefault(_tpsitePfpARobbenPng);
-var _tpsitePfpLFoutsPng = require("url:../images/tpsitePfpLFouts.png");
-var _tpsitePfpLFoutsPngDefault = parcelHelpers.interopDefault(_tpsitePfpLFoutsPng);
-var _tpsitePfpJEasonPng = require("url:../images/tpsitePfpJEason.png");
-var _tpsitePfpJEasonPngDefault = parcelHelpers.interopDefault(_tpsitePfpJEasonPng);
-var _tpsitePfpJJohnsonPng = require("url:../images/tpsitePfpJJohnson.png");
-var _tpsitePfpJJohnsonPngDefault = parcelHelpers.interopDefault(_tpsitePfpJJohnsonPng);
-var _tpsitePfpJMontagPng = require("url:../images/tpsitePfpJMontag.png");
-var _tpsitePfpJMontagPngDefault = parcelHelpers.interopDefault(_tpsitePfpJMontagPng);
-var _tpsitePfpZWatkinsPng = require("url:../images/tpsitePfpZWatkins.png");
-var _tpsitePfpZWatkinsPngDefault = parcelHelpers.interopDefault(_tpsitePfpZWatkinsPng);
-var _tpsitePfpDGreenPng = require("url:../images/tpsitePfpDGreen.png");
-var _tpsitePfpDGreenPngDefault = parcelHelpers.interopDefault(_tpsitePfpDGreenPng);
-var _tpsitePfpJLittlePng = require("url:../images/tpsitePfpJLittle.png");
-var _tpsitePfpJLittlePngDefault = parcelHelpers.interopDefault(_tpsitePfpJLittlePng);
-var _tpsitePfpADinoPng = require("url:../images/tpsitePfpADino.png");
-var _tpsitePfpADinoPngDefault = parcelHelpers.interopDefault(_tpsitePfpADinoPng);
-var _tpsitePfpDDienerPng = require("url:../images/tpsitePfpDDiener.png");
-var _tpsitePfpDDienerPngDefault = parcelHelpers.interopDefault(_tpsitePfpDDienerPng);
-var _tpsitePfpHBaileyPng = require("url:../images/tpsitePfpHBailey.png");
-var _tpsitePfpHBaileyPngDefault = parcelHelpers.interopDefault(_tpsitePfpHBaileyPng);
-var _tpsitePfpSDAngeloPng = require("url:../images/tpsitePfpSDAngelo.png");
-var _tpsitePfpSDAngeloPngDefault = parcelHelpers.interopDefault(_tpsitePfpSDAngeloPng);
-var _tpsitePfpBTillmanPng = require("url:../images/tpsitePfpBTillman.png");
-var _tpsitePfpBTillmanPngDefault = parcelHelpers.interopDefault(_tpsitePfpBTillmanPng);
-var _tpsitePfpBVargasPng = require("url:../images/tpsitePfpBVargas.png");
-var _tpsitePfpBVargasPngDefault = parcelHelpers.interopDefault(_tpsitePfpBVargasPng);
-var _tpsitePfpCBrauerPng = require("url:../images/tpsitePfpCBrauer.png");
-var _tpsitePfpCBrauerPngDefault = parcelHelpers.interopDefault(_tpsitePfpCBrauerPng);
-var _tpsitePfpJDavenportPng = require("url:../images/tpsitePfpJDavenport.png");
-var _tpsitePfpJDavenportPngDefault = parcelHelpers.interopDefault(_tpsitePfpJDavenportPng);
-var _tpsitePfpKHarrisonPng = require("url:../images/tpsitePfpKHarrison.png");
-var _tpsitePfpKHarrisonPngDefault = parcelHelpers.interopDefault(_tpsitePfpKHarrisonPng);
-var _tpsitePfpNAkulaPng = require("url:../images/tpsitePfpNAkula.png");
-var _tpsitePfpNAkulaPngDefault = parcelHelpers.interopDefault(_tpsitePfpNAkulaPng);
-var _tpsitePfpPhutsonPng = require("url:../images/tpsitePfpPhutson.png");
-var _tpsitePfpPhutsonPngDefault = parcelHelpers.interopDefault(_tpsitePfpPhutsonPng);
-var _s = $RefreshSig$();
-const teamMembers = [
-    {
-        name: "Manish Patel",
-        title: "CEO & Founder",
-        image: (0, _tpsitePfpMPatelPngDefault.default)
-    },
-    {
-        name: "Michael Thrasher",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpMThrasherPngDefault.default)
-    },
-    {
-        name: "Billups Tillman",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpBTillmanPngDefault.default)
-    },
-    {
-        name: "Josh Clements",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpJClementsPngDefault.default)
-    },
-    {
-        name: "Steven Chaney",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpSChaneyPngDefault.default)
-    },
-    {
-        name: "Jeff Shirling",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpJShirlingPngDefault.default)
-    },
-    {
-        name: "Kevin Lindsay",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpKLindsayPngDefault.default)
-    },
-    {
-        name: "Michael Debs",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpMDebsPngDefault.default)
-    },
-    {
-        name: "Sebastian Steen",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpSSteenPngDefault.default)
-    },
-    {
-        name: "Amy Robben",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpARobbenPngDefault.default)
-    },
-    {
-        name: "Lexi Fouts",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpLFoutsPngDefault.default)
-    },
-    {
-        name: "Jordan Eason",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpJEasonPngDefault.default)
-    },
-    {
-        name: "Jordan Johnson",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpJJohnsonPngDefault.default)
-    },
-    {
-        name: "Josh Montag",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpJMontagPngDefault.default)
-    },
-    {
-        name: "Zach Watkins",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpZWatkinsPngDefault.default)
-    },
-    {
-        name: "Dustin Green",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpDGreenPngDefault.default)
-    },
-    {
-        name: "John Little",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpJLittlePngDefault.default)
-    },
-    {
-        name: "Alec Dino",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpADinoPngDefault.default)
-    },
-    {
-        name: "Dylan Diener",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpDDienerPngDefault.default)
-    },
-    {
-        name: "Hunter Bailey",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpHBaileyPngDefault.default)
-    },
-    {
-        name: "Stephen D'Angelo",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpSDAngeloPngDefault.default)
-    },
-    {
-        name: "Calvin Brauer",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpCBrauerPngDefault.default)
-    },
-    {
-        name: "Jerrod Davenport",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpJDavenportPngDefault.default)
-    },
-    {
-        name: "Kyle Harrison",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpKHarrisonPngDefault.default)
-    },
-    {
-        name: "Nithya Akula",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpNAkulaPngDefault.default)
-    },
-    {
-        name: "Patrick Hutson",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpPhutsonPngDefault.default)
-    },
-    {
-        name: "Bryan Vargas",
-        title: "Developer & Consultant",
-        image: (0, _tpsitePfpBVargasPngDefault.default)
-    }
-];
-const Team = ()=>{
-    _s();
-    const swiperRef = (0, _react.useRef)(null);
-    (0, _react.useEffect)(()=>{
-        if (window.Swiper && swiperRef.current) new window.Swiper(swiperRef.current, {
-            speed: 600,
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false
-            },
-            slidesPerView: "auto",
-            pagination: {
-                el: ".swiper-pagination",
-                type: "bullets",
-                clickable: true
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
-                },
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                },
-                1200: {
-                    slidesPerView: 4,
-                    spaceBetween: 20
-                }
-            }
-        });
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-        id: "our-team",
-        className: "testimonials section-bg",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "container",
-            "data-aos": "fade-up",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "section-title",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                            children: "Our Team"
-                        }, void 0, false, {
-                            fileName: "src/Components/Team.jsx",
-                            lineNumber: 92,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            children: "Meet the dedicated individuals who make up the heart and soul of our company. Our employees are a diverse and talented group, working together to bring innovation and excellence to everything we do."
-                        }, void 0, false, {
-                            fileName: "src/Components/Team.jsx",
-                            lineNumber: 93,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/Components/Team.jsx",
-                    lineNumber: 91,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    ref: swiperRef,
-                    className: "testimonials-slider swiper",
-                    "data-aos": "fade-up",
-                    "data-aos-delay": "300",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "swiper-wrapper",
-                            children: teamMembers.map((member, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "swiper-slide",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "testimonial-item",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                src: member.image,
-                                                className: "testimonial-img",
-                                                alt: member.name
-                                            }, void 0, false, {
-                                                fileName: "src/Components/Team.jsx",
-                                                lineNumber: 105,
-                                                columnNumber: 19
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                                children: member.name
-                                            }, void 0, false, {
-                                                fileName: "src/Components/Team.jsx",
-                                                lineNumber: 106,
-                                                columnNumber: 19
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                                                children: member.title
-                                            }, void 0, false, {
-                                                fileName: "src/Components/Team.jsx",
-                                                lineNumber: 107,
-                                                columnNumber: 19
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/Components/Team.jsx",
-                                        lineNumber: 104,
-                                        columnNumber: 17
-                                    }, undefined)
-                                }, index, false, {
-                                    fileName: "src/Components/Team.jsx",
-                                    lineNumber: 103,
-                                    columnNumber: 15
-                                }, undefined))
-                        }, void 0, false, {
-                            fileName: "src/Components/Team.jsx",
-                            lineNumber: 101,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "swiper-pagination"
-                        }, void 0, false, {
-                            fileName: "src/Components/Team.jsx",
-                            lineNumber: 112,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/Components/Team.jsx",
-                    lineNumber: 100,
-                    columnNumber: 9
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/Components/Team.jsx",
-            lineNumber: 90,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/Components/Team.jsx",
-        lineNumber: 89,
-        columnNumber: 5
-    }, undefined);
-};
-_s(Team, "YOJOl2/RJfdqtdOv3YOKC7TBHXc=");
-_c = Team;
-exports.default = Team;
-var _c;
-$RefreshReg$(_c, "Team");
-
-  $parcel$ReactRefreshHelpers$5241.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","url:../images/tpsitePfpMPatel.png":"aEe2X","url:../images/tpsitePfpMThrasher.png":"iCSkU","url:../images/tpsitePfpJClements.png":"809GH","url:../images/tpsitePfpSChaney.png":"bFjJs","url:../images/tpsitePfpJShirling.png":"2cD8O","url:../images/tpsitePfpKLindsay.png":"53tip","url:../images/tpsitePfpMDebs.png":"evTbI","url:../images/tpsitePfpSSteen.png":"96zuA","url:../images/tpsitePfpARobben.png":"7WdPF","url:../images/tpsitePfpLFouts.png":"OKYjy","url:../images/tpsitePfpJEason.png":"hycDr","url:../images/tpsitePfpJJohnson.png":"gow9R","url:../images/tpsitePfpJMontag.png":"e4uKj","url:../images/tpsitePfpZWatkins.png":"1rGab","url:../images/tpsitePfpDGreen.png":"AJw1S","url:../images/tpsitePfpJLittle.png":"gxjAY","url:../images/tpsitePfpADino.png":"eW6ch","url:../images/tpsitePfpDDiener.png":"7jywO","url:../images/tpsitePfpHBailey.png":"2TV6p","url:../images/tpsitePfpSDAngelo.png":"gjSgs","url:../images/tpsitePfpBTillman.png":"gl0AC","url:../images/tpsitePfpBVargas.png":"hGZPZ","url:../images/tpsitePfpCBrauer.png":"1BY90","url:../images/tpsitePfpJDavenport.png":"hGAsT","url:../images/tpsitePfpKHarrison.png":"8hkJl","url:../images/tpsitePfpNAkula.png":"lLXhY","url:../images/tpsitePfpPhutson.png":"pJSrY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"aEe2X":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpMPatel.d7a09d66.png") + "?" + Date.now();
-
-},{}],"iCSkU":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpMThrasher.33d77c63.png") + "?" + Date.now();
-
-},{}],"809GH":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpJClements.ee25d2cd.png") + "?" + Date.now();
-
-},{}],"bFjJs":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpSChaney.a1ed2866.png") + "?" + Date.now();
-
-},{}],"2cD8O":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpJShirling.9528f978.png") + "?" + Date.now();
-
-},{}],"53tip":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpKLindsay.28420053.png") + "?" + Date.now();
-
-},{}],"evTbI":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpMDebs.303413fc.png") + "?" + Date.now();
-
-},{}],"96zuA":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpSSteen.fdb916a1.png") + "?" + Date.now();
-
-},{}],"7WdPF":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpARobben.d966ac16.png") + "?" + Date.now();
-
-},{}],"OKYjy":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpLFouts.26a3fb5c.png") + "?" + Date.now();
-
-},{}],"hycDr":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpJEason.ef4cec63.png") + "?" + Date.now();
-
-},{}],"gow9R":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpJJohnson.b1a283a8.png") + "?" + Date.now();
-
-},{}],"e4uKj":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpJMontag.17deeb69.png") + "?" + Date.now();
-
-},{}],"1rGab":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpZWatkins.fa34db5c.png") + "?" + Date.now();
-
-},{}],"AJw1S":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpDGreen.6e3f38fb.png") + "?" + Date.now();
-
-},{}],"gxjAY":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpJLittle.933d0bff.png") + "?" + Date.now();
-
-},{}],"eW6ch":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpADino.00d4e6c3.png") + "?" + Date.now();
-
-},{}],"7jywO":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpDDiener.d9f4eeab.png") + "?" + Date.now();
-
-},{}],"2TV6p":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpHBailey.33d09d61.png") + "?" + Date.now();
-
-},{}],"gjSgs":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpSDAngelo.bf5cd93f.png") + "?" + Date.now();
-
-},{}],"gl0AC":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpBTillman.0909415e.png") + "?" + Date.now();
-
-},{}],"hGZPZ":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpBVargas.eeb13bd7.png") + "?" + Date.now();
-
-},{}],"1BY90":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpCBrauer.6b1ea348.png") + "?" + Date.now();
-
-},{}],"hGAsT":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpJDavenport.687e8f99.png") + "?" + Date.now();
-
-},{}],"8hkJl":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpKHarrison.ae2c971b.png") + "?" + Date.now();
-
-},{}],"lLXhY":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpNAkula.12ebcba1.png") + "?" + Date.now();
-
-},{}],"pJSrY":[function(require,module,exports,__globalThis) {
-module.exports = module.bundle.resolve("tpsitePfpPhutson.602edb4a.png") + "?" + Date.now();
 
 },{}],"3Ak1h":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$4d7e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -28573,7 +28105,7 @@ const Contact = ()=>{
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                        children: "info@techport13.com"
+                                        children: "careers@techport13.com"
                                     }, void 0, false, {
                                         fileName: "src/Components/Contact.jsx",
                                         lineNumber: 48,
@@ -29263,11 +28795,11 @@ const Footer = ()=>{
                                         lineNumber: 23,
                                         columnNumber: 15
                                     }, undefined),
-                                    " info@techport13.com",
+                                    " careers@techport13.com",
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/Components/Footer.jsx",
                                         lineNumber: 23,
-                                        columnNumber: 58
+                                        columnNumber: 61
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
                                         children: "Homepage:"
@@ -29296,8 +28828,6 @@ const Footer = ()=>{
                                     " ",
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                                         href: "https://techport13.com",
-                                        target: "_blank",
-                                        rel: "noopener noreferrer",
                                         children: "techport13.com"
                                     }, void 0, false, {
                                         fileName: "src/Components/Footer.jsx",
