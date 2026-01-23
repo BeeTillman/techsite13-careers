@@ -1,6 +1,6 @@
-11947
+11951
 58/workspaces/techsite13-careers/src/Components/Benefits.jsx1769185685539068421 0
-57/workspaces/techsite13-careers/src/Components/Contact.jsx1769185685539068421 0
+57/workspaces/techsite13-careers/src/Components/Contact.jsx1769185999092055031 0
 54/workspaces/techsite13-careers/src/Components/Hero.jsx1769185685539068421 0
 54/workspaces/techsite13-careers/src/Components/Team.jsx1769185685540068421 0
 56/workspaces/techsite13-careers/src/Components/Footer.jsx1769185685539068421 0
@@ -39,17 +39,17 @@
 71/workspaces/techsite13-careers/build/techsite13-careers.1b1493e9.js.map1769185683104068525 0
 63/workspaces/techsite13-careers/src/images/tpsitePfpBTillman.png1769185685546068421 0
 65/workspaces/techsite13-careers/build/tpsitePfpLFouts.8056af4b.png1769185683113068524 0
-67/workspaces/techsite13-careers/build/tpsiteSpaceStock2.d7c9e781.jpg1769185683120068524 0
+67/workspaces/techsite13-careers/build/tpsiteSpaceStock2.d7c9e781.jpg1769186080483051556 0
 68/workspaces/techsite13-careers/build/techsite13-careers.52ba6633.css1769185683104068525 0
 68/workspaces/techsite13-careers/build/tpsitePfpMThrasher.88476fc2.png1769185683114068524 0
 67/workspaces/techsite13-careers/build/tpsitePfpZWatkins.4004b9ea.png1769185683117068524 0
 66/workspaces/techsite13-careers/build/tpsitePfpJMontag.197f8c07.png1769185683112068524 0
 67/workspaces/techsite13-careers/build/techsite13-careers.cf178cee.js1769185683105068525 0
-57/workspaces/techsite13-careers/build/hero-bg.3ccc9171.jpg1769185683099068525 0
-62/workspaces/techsite13-careers/build/tpsiteTpLogo.34120a5e.png1769185683120068524 0
+57/workspaces/techsite13-careers/build/hero-bg.3ccc9171.jpg1769186080484051556 0
+62/workspaces/techsite13-careers/build/tpsiteTpLogo.34120a5e.png1769186080483051556 0
 71/workspaces/techsite13-careers/build/techsite13-careers.cf178cee.js.map1769185683106068525 0
 68/workspaces/techsite13-careers/build/techsite13-careers.ce3498e1.css1769185683104068525 0
-36/workspaces/techsite13-careers/build1769185683120068524 1
+36/workspaces/techsite13-careers/build1769186080671051548 1
 48/workspaces/techsite13-careers/package-lock.json1769185736975066224 0
 41/workspaces/techsite13-careers/.gitignore1769185683041068527 0
 43/workspaces/techsite13-careers/package.json1769185685539068421 0
@@ -1459,6 +1459,7 @@
 70/workspaces/techsite13-careers/node_modules/function-bind/package.json1769185684811068452 0
 87/workspaces/techsite13-careers/node_modules/es-abstract/2022/TypedArraySpeciesCreate.js1769185684400068469 0
 103/workspaces/techsite13-careers/node_modules/lmdb/dependencies/lmdb-data-v1/libraries/liblmdb/mdb_stat.11769185685178068436 0
+68/workspaces/techsite13-careers/build/techsite13-careers.fa3430ee.css1769186080664051548 0
 70/workspaces/techsite13-careers/node_modules/function-bind/CHANGELOG.md1769185684810068452 0
 75/workspaces/techsite13-careers/node_modules/@swc/helpers/_/_sliced_to_array1769185683902068491 1
 66/workspaces/techsite13-careers/node_modules/function-bind/index.js1769185684811068452 0
@@ -2587,6 +2588,7 @@
 84/workspaces/techsite13-careers/node_modules/reflect.getprototypeof/implementation.js1769185685463068424 0
 66/workspaces/techsite13-careers/node_modules/graphemer/CHANGELOG.md1769185684838068451 0
 53/workspaces/techsite13-careers/node_modules/graphemer1769185684853068450 1
+71/workspaces/techsite13-careers/build/techsite13-careers.a9e3e79e.js.map1769186080671051548 0
 63/workspaces/techsite13-careers/node_modules/object-keys/LICENSE1769185685266068432 0
 65/workspaces/techsite13-careers/node_modules/object-keys/README.md1769185685266068432 0
 85/workspaces/techsite13-careers/node_modules/eslint/lib/rules/no-buffer-constructor.js1769185684713068456 0
@@ -5038,6 +5040,7 @@
 88/workspaces/techsite13-careers/node_modules/es-abstract/helpers/records/regexp-record.js1769185684494068465 0
 90/workspaces/techsite13-careers/node_modules/aria-query/lib/etc/roles/dpub/docCreditRole.js1769185683958068488 0
 57/workspaces/techsite13-careers/node_modules/ajv/lib/dotjs1769185683951068489 1
+67/workspaces/techsite13-careers/build/techsite13-careers.a9e3e79e.js1769186080665051548 0
 75/workspaces/techsite13-careers/node_modules/@parcel/plugin/lib/PluginAPI.js1769185683274068518 0
 61/workspaces/techsite13-careers/node_modules/call-bound/.nycrc1769185684037068485 0
 89/workspaces/techsite13-careers/node_modules/aria-query/lib/etc/roles/literal/radioRole.js1769185683965068488 0
@@ -5125,6 +5128,7 @@
 76/workspaces/techsite13-careers/node_modules/eslint/lib/rules/guard-for-in.js1769185684701068457 0
 98/workspaces/techsite13-careers/node_modules/eslint-plugin-react/lib/util/lifecycleMethods.d.ts.map1769185684642068459 0
 73/workspaces/techsite13-careers/node_modules/@parcel/workers/lib/Worker.js1769185683691068500 0
+72/workspaces/techsite13-careers/build/techsite13-careers.fa3430ee.css.map1769186080671051548 0
 84/workspaces/techsite13-careers/node_modules/eslint/lib/rules/no-restricted-syntax.js1769185684745068455 0
 105/workspaces/techsite13-careers/node_modules/es-iterator-helpers/Iterator.prototype.drop/implementation.js1769185684503068465 0
 60/workspaces/techsite13-careers/node_modules/lmdb/src/env.cpp1769185685207068435 0
@@ -6385,7 +6389,7 @@
 69/workspaces/techsite13-careers/node_modules/cross-spawn/lib/enoent.js1769185684186068479 0
 86/workspaces/techsite13-careers/node_modules/caniuse-lite/data/features/offline-apps.js1769185684135068481 0
 82/workspaces/techsite13-careers/node_modules/@emailjs/browser/es/types/BlockList.js1769185683161068522 0
-47/workspaces/techsite13-careers/build/index.html1769185683099068525 0
+47/workspaces/techsite13-careers/build/index.html1769186080664051548 0
 80/workspaces/techsite13-careers/node_modules/@emailjs/browser/es/utils/isHeadless1769185683162068522 1
 65/workspaces/techsite13-careers/node_modules/node-releases/LICENSE1769185685252068433 0
 70/workspaces/techsite13-careers/node_modules/@parcel/compressor-raw/src1769185683213068520 1
@@ -10116,7 +10120,7 @@
 63/workspaces/techsite13-careers/node_modules/damerau-levenshtein1769185684187068479 1
 72/workspaces/techsite13-careers/node_modules/es-abstract/5/MinFromTime.js1769185684485068466 0
 69/workspaces/techsite13-careers/node_modules/es-abstract/5/TimeClip.js1769185684486068466 0
-69/workspaces/techsite13-careers/build/tpsiteSkylineStock3.aa679205.jpg1769185683119068524 0
+69/workspaces/techsite13-careers/build/tpsiteSkylineStock3.aa679205.jpg1769186080482051556 0
 75/workspaces/techsite13-careers/node_modules/eslint/conf/rule-type-list.json1769185684667068458 0
 69/workspaces/techsite13-careers/node_modules/es-abstract/5/MakeTime.js1769185684485068466 0
 73/workspaces/techsite13-careers/node_modules/es-abstract/5/DateFromTime.js1769185684484068466 0
@@ -11765,7 +11769,7 @@
 62/workspaces/techsite13-careers/node_modules/chalk/package.json1769185684174068479 0
 100/workspaces/techsite13-careers/node_modules/lmdb/dependencies/lmdb-data-v1/libraries/liblmdb/mtest.c1769185685179068436 0
 67/workspaces/techsite13-careers/node_modules/object.fromentries/test1769185685281068432 1
-57/workspaces/techsite13-careers/build/favicon.aab17b63.png1769185683098068525 0
+57/workspaces/techsite13-careers/build/favicon.aab17b63.png1769186080481051556 0
 73/workspaces/techsite13-careers/node_modules/@parcel/watcher/index.js.flow1769185683686068500 0
 76/workspaces/techsite13-careers/node_modules/object.fromentries/test/index.js1769185685281068432 0
 71/workspaces/techsite13-careers/node_modules/object.fromentries/index.js1769185685280068432 0

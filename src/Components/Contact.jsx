@@ -9,57 +9,15 @@ const Contact = () => {
     e.preventDefault();
     setStatus("sending");
 
-    const formData = new FormData(form.current);
-    const applicantName = formData.get("applicant_name");
-    const applicantEmail = formData.get("applicant_email");
-    const source = formData.get("source");
-    const subject = formData.get("subject");
-    const message = formData.get("message");
-    const resumeFile = formData.get("resume");
-
-    const sendWithResume = (resumeData) => {
-      const templateParams = {
-        applicant_name: applicantName,
-        applicant_email: applicantEmail,
-        source: source,
-        subject: subject,
-        message: message,
-        name: applicantName,
-        email: applicantEmail,
-        title: subject
-      };
-
-      if (resumeData) {
-        templateParams.resume = resumeData;
+    emailjs.sendForm("service_19px7xt", "template_lyrqimq", form.current, "AD9kASCtB252sXVHL").then(
+      () => {
+        setStatus("success");
+        form.current.reset();
+      },
+      () => {
+        setStatus("error");
       }
-
-      emailjs.send("service_19px7xt", "template_lyrqimq", templateParams, "AD9kASCtB252sXVHL").then(
-        () => {
-          setStatus("success");
-          form.current.reset();
-        },
-        () => {
-          setStatus("error");
-        }
-      );
-    };
-
-    if (resumeFile && resumeFile.size > 0) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const base64 = reader.result.split(",")[1];
-        sendWithResume({
-          name: resumeFile.name,
-          data: base64
-        });
-      };
-      reader.onerror = () => {
-        sendWithResume(null);
-      };
-      reader.readAsDataURL(resumeFile);
-    } else {
-      sendWithResume(null);
-    }
+    );
   };
 
   return (
@@ -142,6 +100,9 @@ const Contact = () => {
                 <label htmlFor="resume">Upload Resume (Optional)</label>
                 <input type="file" className="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" />
               </div>
+              <input type="hidden" name="name" value="" />
+              <input type="hidden" name="email" value="" />
+              <input type="hidden" name="title" value="" />
               <div className="my-3">
                 <div className={`loading ${status === "sending" ? "d-block" : ""}`}>Loading</div>
                 <div className={`error-message ${status === "error" ? "d-block" : ""}`}>
