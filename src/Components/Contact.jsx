@@ -9,15 +9,46 @@ const Contact = () => {
     e.preventDefault();
     setStatus("sending");
 
-    emailjs.sendForm("service_19px7xt", "template_lyrqimq", form.current, "AD9kASCtB252sXVHL").then(
-      () => {
-        setStatus("success");
-        form.current.reset();
-      },
-      () => {
-        setStatus("error");
-      }
-    );
+    const formData = new FormData(form.current);
+    const resumeFile = formData.get("resume");
+
+    const templateParams = {
+      applicant_name: formData.get("applicant_name"),
+      applicant_email: formData.get("applicant_email"),
+      source: formData.get("source"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+      name: formData.get("applicant_name"),
+      email: formData.get("applicant_email"),
+      title: formData.get("subject")
+    };
+
+    const send = (params) => {
+      emailjs.send("service_19px7xt", "template_lyrqimq", params, "AD9kASCtB252sXVHL").then(
+        () => {
+          setStatus("success");
+          form.current.reset();
+        },
+        () => {
+          setStatus("error");
+        }
+      );
+    };
+
+    if (resumeFile && resumeFile.size > 0) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = reader.result.split(",")[1];
+        templateParams.resume = {
+          name: resumeFile.name,
+          base64: base64
+        };
+        send(templateParams);
+      };
+      reader.readAsDataURL(resumeFile);
+    } else {
+      send(templateParams);
+    }
   };
 
   return (
@@ -100,9 +131,6 @@ const Contact = () => {
                 <label htmlFor="resume">Upload Resume (Optional)</label>
                 <input type="file" className="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" />
               </div>
-              <input type="hidden" name="name" value="" />
-              <input type="hidden" name="email" value="" />
-              <input type="hidden" name="title" value="" />
               <div className="my-3">
                 <div className={`loading ${status === "sending" ? "d-block" : ""}`}>Loading</div>
                 <div className={`error-message ${status === "error" ? "d-block" : ""}`}>
