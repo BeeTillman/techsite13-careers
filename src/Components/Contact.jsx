@@ -9,15 +9,57 @@ const Contact = () => {
     e.preventDefault();
     setStatus("sending");
 
-    emailjs.sendForm("service_19px7xt", "template_hxvren9", form.current, "AD9kASCtB252sXVHL").then(
-      () => {
-        setStatus("success");
-        form.current.reset();
-      },
-      () => {
-        setStatus("error");
+    const formData = new FormData(form.current);
+    const applicantName = formData.get("applicant_name");
+    const applicantEmail = formData.get("applicant_email");
+    const source = formData.get("source");
+    const subject = formData.get("subject");
+    const message = formData.get("message");
+    const resumeFile = formData.get("resume");
+
+    const sendWithResume = (resumeData) => {
+      const templateParams = {
+        applicant_name: applicantName,
+        applicant_email: applicantEmail,
+        source: source,
+        subject: subject,
+        message: message,
+        name: applicantName,
+        email: applicantEmail,
+        title: subject
+      };
+
+      if (resumeData) {
+        templateParams.resume = resumeData;
       }
-    );
+
+      emailjs.send("service_19px7xt", "template_lyrqimq", templateParams, "AD9kASCtB252sXVHL").then(
+        () => {
+          setStatus("success");
+          form.current.reset();
+        },
+        () => {
+          setStatus("error");
+        }
+      );
+    };
+
+    if (resumeFile && resumeFile.size > 0) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = reader.result.split(",")[1];
+        sendWithResume({
+          name: resumeFile.name,
+          data: base64
+        });
+      };
+      reader.onerror = () => {
+        sendWithResume(null);
+      };
+      reader.readAsDataURL(resumeFile);
+    } else {
+      sendWithResume(null);
+    }
   };
 
   return (
@@ -74,21 +116,31 @@ const Contact = () => {
             <form ref={form} onSubmit={sendEmail} className="php-email-form">
               <div className="row">
                 <div className="col-md-6 form-group">
-                  <input type="text" name="from_name" className="form-control" placeholder="Your Name" required />
+                  <input type="text" name="applicant_name" className="form-control" placeholder="Your Name" required />
                 </div>
                 <div className="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" name="email_address" className="form-control" placeholder="Your Email" required />
+                  <input type="email" name="applicant_email" className="form-control" placeholder="Your Email" required />
                 </div>
               </div>
               <div className="form-group mt-3">
-                <input type="text" name="subject" className="form-control" placeholder="Subject" required />
+                <select name="source" className="form-control" required>
+                  <option value="">How did you hear about us?</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Indeed">Indeed</option>
+                  <option value="Referral">Referral</option>
+                  <option value="Company Website">Company Website</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div className="form-group mt-3">
+                <input type="text" name="subject" className="form-control" placeholder="Position / Subject" required />
               </div>
               <div className="form-group mt-3">
                 <textarea name="message" className="form-control" rows="5" placeholder="Message" required></textarea>
               </div>
               <div className="form-group mt-3">
-                <label htmlFor="file_upload">Upload Resume (Optional)</label>
-                <input type="file" className="form-control" id="file_upload" name="file_upload" />
+                <label htmlFor="resume">Upload Resume (Optional)</label>
+                <input type="file" className="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" />
               </div>
               <div className="my-3">
                 <div className={`loading ${status === "sending" ? "d-block" : ""}`}>Loading</div>
@@ -96,12 +148,12 @@ const Contact = () => {
                   Failed to send message. Please try again.
                 </div>
                 <div className={`sent-message ${status === "success" ? "d-block" : ""}`}>
-                  Your message has been sent. Thank you!
+                  Your application has been sent. Thank you!
                 </div>
               </div>
               <div className="text-center">
                 <button type="submit" disabled={status === "sending"}>
-                  {status === "sending" ? "Sending..." : "Send Message"}
+                  {status === "sending" ? "Sending..." : "Submit Application"}
                 </button>
               </div>
             </form>
