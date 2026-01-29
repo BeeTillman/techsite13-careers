@@ -37,11 +37,12 @@ const Contact = () => {
 
     if (resumeFile && resumeFile.size > 0) {
       const reader = new FileReader();
-      reader.onload = () => {
-        const base64 = reader.result.split(",")[1];
+      reader.onload = function() {
+        const result = reader.result;
+        const base64String = result.substring(result.indexOf(",") + 1);
         templateParams.resume = {
           name: resumeFile.name,
-          base64: base64
+          base64: base64String
         };
         send(templateParams);
       };
